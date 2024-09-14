@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SampleCarousel" />
+        <activity android:name=".SampleCarouselList" />
 
     </application>
 

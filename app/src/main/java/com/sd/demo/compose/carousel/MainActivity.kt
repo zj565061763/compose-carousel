@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
          AppTheme {
             Content(
                listActivity = listOf(
-                  SampleCarousel::class.java,
+                  SampleCarouselList::class.java,
                ),
                onClickActivity = {
                   startActivity(Intent(this, it))

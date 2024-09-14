@@ -20,10 +20,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sd.demo.compose.carousel.theme.AppTheme
-import com.sd.lib.compose.carousel.FCarousel
+import com.sd.lib.compose.carousel.FCarouselList
 import java.util.UUID
 
-class SampleCarousel : ComponentActivity() {
+class SampleCarouselList : ComponentActivity() {
 
    private val _list = MutableList(10) { index ->
       if (index % 2 == 0) {
@@ -62,7 +62,7 @@ private fun Content(
             shape = CircleShape,
          ),
       ) {
-         FCarousel(list = list) { target ->
+         FCarouselList(list) { item ->
             Box(
                modifier = Modifier
                   .height(26.dp)
@@ -71,15 +71,15 @@ private fun Content(
                contentAlignment = Alignment.Center,
             ) {
                Text(
-                  text = target,
+                  text = item,
                   color = Color.White,
                   fontSize = 13.sp,
                   maxLines = 1,
                )
             }
 
-            LaunchedEffect(target) {
-               logMsg { "target:$target" }
+            LaunchedEffect(item) {
+               logMsg { "item:$item" }
             }
          }
       }

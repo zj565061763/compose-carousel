@@ -15,16 +15,16 @@ import kotlinx.coroutines.delay
  * 轮播滚动
  */
 @Composable
-fun <T> FCarousel(
-   modifier: Modifier = Modifier,
+fun <T> FCarouselList(
    /** 列表 */
    list: List<T>,
+   modifier: Modifier = Modifier,
    /** 切换间隔 */
    interval: Long = 3000,
    /** 切换动画时长 */
    duration: Int = 1000,
    /** 内容 */
-   content: @Composable (target: T) -> Unit,
+   content: @Composable (T) -> Unit,
 ) {
    val lifecycle = LocalLifecycleOwner.current.lifecycle
    fLoopTarget(
@@ -35,10 +35,10 @@ fun <T> FCarousel(
             delay(interval)
          }
       },
-   ).value?.let { target ->
+   ).value?.let { item ->
       FCarousel(
+         target = item,
          modifier = modifier,
-         target = target,
          duration = duration,
          content = content,
       )
@@ -50,13 +50,13 @@ fun <T> FCarousel(
  */
 @Composable
 fun <T> FCarousel(
-   modifier: Modifier = Modifier,
    /** 目标 */
    target: T,
+   modifier: Modifier = Modifier,
    /** 切换动画时长 */
    duration: Int = 1000,
    /** 内容 */
-   content: @Composable (target: T) -> Unit,
+   content: @Composable (T) -> Unit,
 ) {
    AnimatedContent(
       modifier = modifier.clipToBounds(),
