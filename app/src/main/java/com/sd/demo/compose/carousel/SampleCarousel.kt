@@ -20,7 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.sd.demo.compose.carousel.theme.AppTheme
-import com.sd.lib.compose.carousel.FCarouselVertical
+import com.sd.lib.compose.carousel.FCarousel
 import java.util.UUID
 
 class SampleCarousel : ComponentActivity() {
@@ -62,7 +62,7 @@ private fun Content(
             shape = CircleShape,
          ),
       ) {
-         FCarouselVertical(list = list) { target ->
+         FCarousel(list = list) { target ->
             Box(
                modifier = Modifier
                   .height(26.dp)

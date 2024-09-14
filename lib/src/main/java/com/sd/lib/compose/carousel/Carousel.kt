@@ -15,7 +15,7 @@ import kotlinx.coroutines.delay
  * 轮播滚动
  */
 @Composable
-fun <T> FCarouselVertical(
+fun <T> FCarousel(
    modifier: Modifier = Modifier,
    /** 列表 */
    list: List<T>,
@@ -36,7 +36,7 @@ fun <T> FCarouselVertical(
          }
       },
    ).value?.let { target ->
-      FCarouselVertical(
+      FCarousel(
          modifier = modifier,
          target = target,
          duration = duration,
@@ -49,7 +49,7 @@ fun <T> FCarouselVertical(
  * 轮播滚动
  */
 @Composable
-fun <T> FCarouselVertical(
+fun <T> FCarousel(
    modifier: Modifier = Modifier,
    /** 目标 */
    target: T,
@@ -61,7 +61,7 @@ fun <T> FCarouselVertical(
    AnimatedContent(
       modifier = modifier.clipToBounds(),
       targetState = target,
-      label = "FCarouselVertical",
+      label = "FCarousel",
       contentAlignment = Alignment.Center,
       transitionSpec = {
          ContentTransform(
