@@ -1,5 +1,6 @@
 package com.sd.lib.compose.carousel
 
+import androidx.compose.animation.AnimatedContentTransitionScope.SlideDirection
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.LocalLifecycleOwner
@@ -15,6 +16,8 @@ fun <T> FCarouselList(
    modifier: Modifier = Modifier,
    /** 切换间隔 */
    interval: Long = 3000,
+   /** 滚动方向 */
+   towards: SlideDirection = SlideDirection.Up,
    /** 切换动画时长 */
    duration: Int = 1000,
    /** 内容 */
@@ -33,6 +36,7 @@ fun <T> FCarouselList(
       FCarousel(
          target = item,
          modifier = modifier,
+         towards = towards,
          duration = duration,
          content = content,
       )
