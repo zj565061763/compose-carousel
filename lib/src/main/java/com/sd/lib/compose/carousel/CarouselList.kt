@@ -24,7 +24,7 @@ fun <T> FCarouselList(
    content: @Composable (T) -> Unit,
 ) {
    val lifecycle = LocalLifecycleOwner.current.lifecycle
-   fLoopTarget(
+   fLoopItem(
       list = list,
       onLoop = {
          delay(interval)

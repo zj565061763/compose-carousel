@@ -15,7 +15,7 @@ import kotlin.coroutines.cancellation.CancellationException
 import kotlin.coroutines.resume
 
 @Composable
-internal fun <T> fLoopTarget(
+internal fun <T> fLoopItem(
    list: List<T>,
    onLoop: suspend () -> Unit,
 ): State<T?> {
